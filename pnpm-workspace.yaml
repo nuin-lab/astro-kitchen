@@ -3,5 +3,8 @@ packages:
   - "packages/*"
   - "website"
 
+catalog:
+  wrangler: ^4.59.3
+
 onlyBuiltDependencies:
   - esbuild

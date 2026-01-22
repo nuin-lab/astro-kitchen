@@ -4,11 +4,16 @@ private: true
 license: MPL-2.0
 author: nuin
 scripts:
-  test: >-
-    echo "Error: no test specified" &&
-    exit 1
+  dev: pnpm "/^dev:.*/"
+
+  build: pnpm "/^build:.*/"
+
+  preview: pnpm build && wrangler dev
 
 packageManager: "pnpm@10.28.0"
 engines:
   node: ">=24.0.0"
   pnpm: ">=10.0.0"
+
+devDependencies:
+  wrangler: "catalog:"
