@@ -6,5 +6,8 @@ packages:
 catalog:
   wrangler: ^4.59.3
 
+  # ----- Linter / Formater -----
+  "@biomejs/biome": 2.3.11
+
 onlyBuiltDependencies:
   - esbuild
