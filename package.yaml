@@ -5,8 +5,12 @@ license: MPL-2.0
 author: nuin
 scripts:
   dev: pnpm "/^dev:.*/"
+  dev:website: 'pnpm --filter website dev'
 
   build: pnpm "/^build:.*/"
+  build:website: >-
+    pnpm --filter website install &&
+    pnpm --filter website build
 
   preview: pnpm build && wrangler dev
 

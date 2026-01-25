@@ -1,0 +1,17 @@
+{
+  "name": "@astro-kitchen/website",
+  "version": "0.0.1",
+  "description": "The Astro Kitchen website root.",
+  "private": "true",
+  "license": "MPL-2.0",
+  "author": "nuin",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "packageManager": "pnpm@10.28.0",
+  "devDependencies": {
+    "vite": "catalog:"
+  }
+}
