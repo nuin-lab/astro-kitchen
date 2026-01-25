@@ -4,10 +4,10 @@ packages:
   - "website"
 
 catalog:
-  wrangler: ^4.59.3
+  wrangler: ^4.60.0
 
   # ----- Linter / Formater -----
-  "@biomejs/biome": 2.3.11
+  "@biomejs/biome": 2.3.12
 
 onlyBuiltDependencies:
   - esbuild
