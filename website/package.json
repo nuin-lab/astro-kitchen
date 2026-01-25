@@ -12,6 +12,7 @@
   },
   "packageManager": "pnpm@10.28.0",
   "devDependencies": {
+    "@astro-kitchen/vite-config": "workspace:*",
     "vite": "catalog:"
   }
 }

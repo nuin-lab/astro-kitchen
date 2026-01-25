@@ -1,8 +1,12 @@
-import { defineConfig } from 'vite';
+import { defineConfig, mergeConfig } from 'vite';
+import baseViteConfig from '@astro-kitchen/vite-config';
 
-export default defineConfig({
-  build: {
-    outDir: '../dist',
-    emptyOutDir: true,
-  },
-});
+export default mergeConfig(
+  baseViteConfig,
+  defineConfig({
+    build: {
+      outDir: '../dist',
+      emptyOutDir: true,
+    },
+  }),
+);
