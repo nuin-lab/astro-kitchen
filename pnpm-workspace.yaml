@@ -10,5 +10,12 @@ catalog:
   # ----- Linter / Formater -----
   "@biomejs/biome": 2.3.12
 
+catalogs:
+  astro:
+    astro-relative-links: ^0.4.2
+
+  astro5:
+    astro: ^5.16.15
+
 onlyBuiltDependencies:
   - esbuild

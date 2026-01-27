@@ -6,11 +6,16 @@ author: nuin
 scripts:
   dev: pnpm "/^dev:.*/"
   dev:website: 'pnpm --filter website dev'
+  dev:vanilla: 'pnpm --filter vanilla dev'
 
   build: pnpm "/^build:.*/"
   build:website: >-
     pnpm --filter website install &&
     pnpm --filter website build
+  build:vanilla: >-
+    pnpm --filter vanilla install &&
+    pnpm --filter vanilla build &&
+    cp -r ./apps/vanilla/dist ./dist/vanilla
 
   preview: pnpm build && wrangler dev
 
