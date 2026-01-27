@@ -1,0 +1,56 @@
+name: Generic Issues
+description: Propose improvements or report problems.
+labels: ["state:needs triage"]
+body:
+  - type: checkboxes
+    attributes:
+      label: Before opening an issue
+      description: Please review the following checklist before submitting.
+      options:
+        - label: I have searched existing issues (open and closed) and did not find a duplicate.
+          required: true
+
+  - type: dropdown
+    attributes:
+      label: Issue type
+      description: |
+        - Suggestion — Minor implementation or peripheral changes, including documentation improvements
+        - Proposal — Design/spec/architecture changes with broad impact
+        - Report — Problem reports (bugs, test/CI failures, security issues, docs-code mismatches)
+      options:
+        - Suggestion
+        - Proposal
+        - Report
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: As Is
+      description: Describe the current state and known problems.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: To Be
+      description: Describe the desired state; include acceptance criteria and impact.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: To Do
+      description: List concrete tasks to implement the improvement (owner and deadline optional).
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: |
+        - Can you reproduce the issue reliably? How often does it occur and who is affected?
+        - Provide any relevant context, examples, or screenshots.
+        - Link to related code or external references if applicable.
+    validations:
+      required: false
