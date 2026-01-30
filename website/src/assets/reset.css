@@ -1,0 +1,43 @@
+@layer {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    line-break: strict;
+    text-spacing-trim: trim-start;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  body {
+    margin: 0;
+    min-block-size: 100dvb;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    overflow-wrap: break-word;
+
+    &:lang(en) {
+      text-wrap: pretty;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: clamp(1.2em, calc(1em + 0.6rem), 1.8em);
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+}

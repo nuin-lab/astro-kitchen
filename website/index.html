@@ -7,6 +7,15 @@
 
     <link rel="stylesheet" href="./src/assets/styles.css">
 
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=archivo:300|ibm-plex-sans-jp:500&display=swap" rel="stylesheet">
+
+    <!-- <link rel="preconnect" href="https://fonts.upset.dev">
+    <link
+      href="https://fonts.upset.dev/css2?family=Archivo:wght@300&family=IBM+Plex+Sans+JP:wght@500&display=swap"
+      rel="stylesheet"
+    > -->
+
     <title>Home｜nuinのあすとろ調理室</title>
     <meta name="description" content="Astroを使った実装をいろいろ試す場">
 
@@ -14,13 +23,62 @@
   </head>
 
   <body>
-    <h1>nuinのあすとろ調理室</h1>
-    <ul>
-      <li>
-        <a href="/vanilla" target="_blank">
-          Vanilla
-        </a>
-      </li>
-    </ul>
+    <section id="hero">
+      <h1>Astro Kitchen</h1>
+      <p>
+        Astro上でいろいろな実装を試す創作実験の場。
+        <br>
+        スニペット兼デモとしての役割も持っている。
+      </p>
+      <a class="view-soruce" href="https://github.com/nuin-lab/astro-kitchen" target="_blank" rel="noreferrer">
+        View soruce
+      </a>
+    </section>
+
+    <main id="main">
+      <h2 id="r-dom">Real-DOM</h2>
+      <ul class="framework-list">
+        <li data-value="vanilla"><a href="/vanilla">
+          <h3>Vanilla</h3>
+          <p>純粋なTypeScriptでの実装。</p>
+        </a></li>
+        <li data-value="svelte"><a href="/svelte">
+          <h3>Svelte</h3>
+          <p>Svelteと組み合わせた実装。</p>
+        </a></li>
+        <li data-value="solidjs"><a href="/solidjs">
+          <h3>SolidJS</h3>
+          <p>SolidJSと組み合わせた実装。</p>
+        </a></li>
+        <li data-value="alpinejs"><a href="/alpinejs">
+          <h3>Alpine.js</h3>
+          <p>Alpine.jsと組み合わせた実装。</p>
+        </a></li>
+      </ul>
+
+      <h2 id="v-dom">Virtual-DOM</h2>
+      <ul class="framework-list">
+        <li data-value="qwik"><a href="/qwik">
+          <h3>Qwik</h3>
+          <p>Qwikと組み合わせた実装。</p>
+        </a></li>
+        <li data-value="preact"><a href="/preact">
+          <h3>Preact</h3>
+          <p>Preactと組み合わせた実装。</p>
+        </a></li>
+        <li data-value="react"><a href="/react">
+          <h3>React</h3>
+          <p>Reactと組み合わせた実装。</p>
+        </a></li>
+        <li data-value="vue"><a href="/vue">
+          <h3>Vue</h3>
+          <p>Vueと組み合わせた実装。</p>
+        </a></li>
+      </ul>
+    </main>
+
+    <footer id="footer">
+      <div>© nuin</div>
+    </footer>
   </body>
 </html>
