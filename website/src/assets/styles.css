@@ -1,43 +1,280 @@
-@layer {
-  *,
-  ::before,
-  ::after {
-    box-sizing: border-box;
+@import url(./reset.css);
+
+:root {
+  --black: hsl(280, 24%, 16%);
+  --white: hsl(280, 8%, 92%);
+
+  --bdr-wd: 1px;
+
+  font-size: max(1rem, max(18px, 0.9375vw));
+}
+
+body {
+  display: grid;
+
+  background-color: var(--white);
+  color: var(--black);
+
+  font-family: "Archivo", sans-serif;
+
+  @media screen and (width < 1400px) {
+    grid-template-columns: 0.25fr 2fr 0.25fr;
   }
 
-  html {
-    line-break: strict;
-    text-spacing-trim: trim-start;
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
+  @media screen and (width >= 1400px) {
+    grid-template-columns: 0.25fr 2.5fr 0.25fr 0.25fr 3fr 0.25fr;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  line-height: 1;
+}
+
+p {
+  margin: 0;
+
+  font-family: "IBM Plex Sans JP", sans-serif;
+
+  opacity: 0.75;
+}
+
+#hero,
+#footer {
+  grid-column: 2 / 3;
+  padding-block: 2em;
+
+  @media screen and (width >= 1400px) {
+    padding-inline: 2em;
+  }
+}
+
+#hero {
+  > h1 {
+    text-transform: uppercase;
   }
 
-  body {
-    margin: 0;
-    min-block-size: 100dvb;
+  > p {
+    margin-top: 1.5em;
+
+    font-size: 1.1em;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    overflow-wrap: break-word;
-
-    &:lang(en) {
-      text-wrap: pretty;
+  @media screen and (width < 480px) {
+    > h1 {
+      font-size: 3em;
     }
   }
 
-  h1,
-  h2,
-  h3 {
-    line-height: clamp(1.2em, calc(1em + 0.6rem), 1.8em);
+  @media screen and (width >= 480px) {
+    > h1 {
+      font-size: 6em;
+    }
   }
 
-  h1 {
+  @media screen and (width < 1400px) {
+    margin: 2em 0;
+  }
+
+  @media screen and (width >= 1400px) {
+    margin-top: 5em;
+  }
+}
+
+.btn-cta {
+  display: inline-block;
+
+  position: relative;
+
+  margin-top: 4em;
+  padding: 0.75em 2em;
+
+  background-color: var(--black);
+  color: var(--white);
+
+  border: var(--bdr-wd) solid var(--black);
+
+  font-size: 1.1em;
+  line-height: 1;
+
+  text-decoration: none;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: none;
+      color: var(--black);
+    }
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 1rem;
+    aspect-ratio: 1;
+
+    background-color: var(--white);
+    background-size: contain;
+
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  }
+}
+
+#footer {
+  display: grid;
+  align-items: end;
+}
+
+#main {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: repeat(8, minmax(min-content, 1fr));
+
+  @media screen and (width < 1400px) {
+    grid-column: 1 / 4;
+
+    border-block: var(--bdr-wd) solid;
+  }
+
+  @media screen and (width >= 1400px) {
+    grid-column: 4 / 7;
+    grid-row: 1 / 3;
+    grid-template-rows: repeat(8, 1fr);
+
+    max-height: 100dvh;
+
+    border-inline: var(--bdr-wd) solid;
+
+    overflow-x: scroll;
+  }
+}
+
+#r-dom,
+#v-dom {
+  display: grid;
+  place-content: center;
+
+  background-color: var(--black);
+  color: var(--white);
+
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+#r-dom {
+  grid-column: 1 / 2;
+  grid-row: 1 / 6;
+
+  writing-mode: sideways-lr;
+
+  + .framework-list {
+    grid-row: 1 / 5;
+  }
+
+  /* Real-DOM Filter */
+  @media (hover: hover) and (pointer: fine) {
+    &:hover ~ .framework-list > [data-value="qwik"] ~ [data-value] {
+      opacity: var(--opacity);
+    }
+  }
+}
+
+#v-dom {
+  grid-column: 3 / 4;
+  grid-row: 5 / 9;
+
+  writing-mode: sideways-rl;
+
+  + .framework-list {
+    grid-row: 5 / 9;
+  }
+}
+
+/* biome-ignore lint/style/noDescendingSpecificity: 先に定義されているセレクタのプロパティと干渉していないため */
+.framework-list {
+  --opacity: 0.25;
+
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+  grid-column: 2 / 3;
+
+  margin: 0;
+  padding: 0;
+
+  border-inline: var(--bdr-wd) solid;
+
+  &:last-child {
+    border-top: var(--bdr-wd) solid;
+  }
+
+  /* Virtual-DOM Filter */
+  @media (hover: hover) and (pointer: fine) {
+    &:has(+ #v-dom:hover) > [data-value] {
+      opacity: var(--opacity);
+    }
+  }
+
+  li {
+    list-style: none;
+
+    &:not(:last-child) {
+      border-bottom: var(--bdr-wd) solid;
+    }
+  }
+
+  a {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 0.5em;
+
+    padding: 1em calc(2em + var(--bdr-wd));
+
+    height: 100%;
+
+    background-color: var(--white);
+    color: var(--black);
+
+    text-decoration: none;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--black);
+        color: var(--white);
+      }
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 1.5rem;
+      aspect-ratio: 1;
+
+      background-color: var(--white);
+      background-size: contain;
+
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+    }
+
+    @media screen and (width < 1400px) {
+      padding-block: 2em;
+    }
+  }
+
+  h3 {
     font-size: 2em;
   }
 }
