@@ -1,0 +1,80 @@
+@import url(./reset.css);
+
+:root {
+  --black: hsl(280, 24%, 16%);
+  --white: hsl(280, 8%, 92%);
+
+  --bdr-wd: 1px;
+
+  font-size: max(1rem, max(18px, 0.9375vw));
+}
+
+body {
+  display: grid;
+  grid-template-rows: 1fr auto;
+
+  background-color: var(--white);
+  color: var(--black);
+
+  font-family: "Archivo", sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin-top: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.btn-cta {
+  display: inline-block;
+
+  position: relative;
+
+  margin-top: 6em;
+  padding: 0.75em 2em;
+
+  background-color: var(--black);
+  color: var(--white);
+
+  border: var(--bdr-wd) solid var(--black);
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: none;
+      color: var(--black);
+    }
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 1rem;
+    aspect-ratio: 1;
+
+    background-color: var(--white);
+    background-size: contain;
+
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+  }
+}
+
+footer {
+  padding: 2em;
+}
