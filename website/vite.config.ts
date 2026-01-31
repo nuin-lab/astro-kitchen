@@ -4,6 +4,7 @@ import baseViteConfig from '@astro-kitchen/vite-config';
 export default mergeConfig(
   baseViteConfig,
   defineConfig({
+    appType: 'mpa',
     build: {
       outDir: '../dist',
       emptyOutDir: true,
