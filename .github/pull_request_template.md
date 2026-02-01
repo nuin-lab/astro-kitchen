@@ -6,7 +6,7 @@ Closes #[ISSUE_NUM]
 - `Closes #1` — If your PR relates to an enhancement issue
 - `Fixes #1` — If your PR relates to a bug issue
 
-Oh, don't have an issue yet? Please create a new issue at https://github.com/username/repository/issues/new/choose
+Oh, don't have an issue yet? Please create a new issue at https://github.com/nuin-lab/astro-kitchen/issues/new/choose
 -->
 
 
