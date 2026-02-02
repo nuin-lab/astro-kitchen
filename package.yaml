@@ -29,4 +29,5 @@ engines:
 
 devDependencies:
   "@biomejs/biome": "catalog:"
+  dprint: "catalog:"
   wrangler: "catalog:"
