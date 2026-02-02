@@ -3,7 +3,7 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "includes": ["**", "!**/public/*"],
+    "includes": ["**", "!**/public/*", "!**/dist/*", "!**/.astro/*"],
     "ignoreUnknown": false
   },
   "vcs": {
