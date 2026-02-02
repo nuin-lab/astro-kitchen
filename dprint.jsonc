@@ -1,0 +1,10 @@
+// Configuration: https://dprint.dev/config/
+
+{
+  "yaml": {
+    "printWidth": 120
+  },
+  "includes": ["**/*.{yaml}"],
+  "excludes": ["**/node_modules", "**/.github", "**/*-lock.yaml"],
+  "plugins": ["https://plugins.dprint.dev/g-plane/pretty_yaml-v0.6.0.wasm"]
+}
