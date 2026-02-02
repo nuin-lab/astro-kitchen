@@ -19,7 +19,12 @@ scripts:
 
   preview: pnpm build && wrangler dev
 
-  format: biome format --write
+  check: >-
+    biome check ;
+    dprint check
+  format: >-
+    biome format --write ;
+    dprint fmt
   lint: biome lint --write
 
 packageManager: "pnpm@10.28.0"
