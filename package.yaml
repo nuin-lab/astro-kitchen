@@ -1,13 +1,16 @@
 name: "@astro-kitchen/monorepo"
 description: "Astro Kitchen"
 private: true
-license: MPL-2.0
-author: nuin
-scripts:
-  dev: pnpm "/^dev:.*/"
-  dev:website: 'pnpm --filter website dev'
-  dev:vanilla: 'pnpm --filter vanilla dev'
+license: "MPL-2.0"
+author: "nuin"
 
+scripts:
+  # Dev
+  dev: pnpm "/^dev:.*/"
+  dev:website: pnpm --filter website dev
+  dev:vanilla: pnpm --filter vanilla dev
+
+  # Build
   build: pnpm "/^build:.*/"
   build:website: >-
     pnpm --filter website install &&
@@ -17,8 +20,10 @@ scripts:
     pnpm --filter vanilla build &&
     cp -r ./apps/vanilla/dist ./dist/vanilla
 
+  # Preview
   preview: pnpm build && wrangler dev
 
+  # Linter / Formatter
   check: >-
     biome check ;
     dprint check
