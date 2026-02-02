@@ -8,7 +8,7 @@ catalog:
   vite: ^7.3.1
   wrangler: ^4.61.1
 
-  # ----- Linter / Formater -----
+  # ----- Linter / Formatter -----
   "@biomejs/biome": 2.3.13
   dprint: ^0.51.1
 
